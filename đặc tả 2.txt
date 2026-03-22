@@ -1,0 +1,29 @@
+Hệ thống tập trung số hóa quy trình order, bán hàng và quản lý doanh thu, đồng thời tách biệt phương pháp quản lý kho giữa Hàng hóa bán lẻ và Nguyên liệu chế biến.
+
+**1. Quản lý Sản phẩm và Phân loại (Product Management)**
+* **Phân loại hàng hóa:** Thiết lập ranh giới rõ ràng trong cơ sở dữ liệu:
+    * *Hàng hóa bán lẻ (Retail Goods):* Nước suối, Coca, Bia... Quản lý tồn kho tự động (trừ 1 khi bán 1).
+    * *Món ăn chế biến (Cooked Dishes):* Bò né, Mì Ý, Bít tết... Chỉ quản lý giá bán, không quản lý tồn kho tự động.
+    * *Nguyên liệu thô (Raw Materials):* Thịt bò, pate, nước sốt, gia vị... Không hiển thị trên giao diện bán hàng POS, chỉ hiển thị trong phân hệ Kho.
+* **Tùy biến món (Modifiers):** Hỗ trợ thêm các ghi chú chế biến (không hành, chín kỹ) trực tiếp vào món ăn để in phiếu bếp.
+
+**2. Quản lý Kho bán tự động (Semi-automated Inventory)**
+* **Quản lý Hàng hóa bán lẻ:** Tự động trừ kho ngay khi thu ngân chốt hóa đơn. Cảnh báo tồn kho khi dưới ngưỡng an toàn.
+* **Quản lý Nguyên liệu thô (Kiểm kê cuối ca):** Không trừ kho tự động theo món bán ra. Thay vào đó, số hóa "Sổ kiểm kho":
+    * Hệ thống ghi nhận *Tồn đầu ca* và các phiếu *Nhập kho* trong ca (bao gồm cả mua hàng nội bộ/mua ngoài).
+    * Cuối ca, nhân viên thực hiện "Kiểm kê thực tế", điền số lượng *Tồn cuối*. Hệ thống tự động nội suy ra số lượng *Xuất sử dụng* trong ca đó.
+* **Quản lý Chi tiêu nội bộ (Petty Cash):** Tích hợp form ghi nhận "Mua ngoài" (Người chi, người nhận, tên hàng, số tiền) trực tiếp vào luồng nhập kho để tính toán chi phí vận hành ngày.
+
+**3. Quy trình Bán hàng (POS) & Điều phối Bếp (KDS)**
+* **Quản lý khu vực & Bàn:** Sơ đồ bàn trực quan chia theo khu vực (Bàn ăn, Mang về). Trạng thái bàn thay đổi màu sắc (Trống, Đang phục vụ).
+* **Luồng Order & In phiếu:** Nhân viên thao tác chọn món. Khi xác nhận, hệ thống tách luồng và tự động in "Phiếu chế biến" tại Bếp (chứa các món chế biến) và "Phiếu xuất quầy" tại quầy Nước (chứa hàng hóa bán lẻ). Phiếu in hiển thị số bàn, giờ, tên nhân viên và ghi chú món.
+* **Thanh toán & Xử lý ngoại lệ:**
+    * Thu ngân chốt bill, nhập tiền khách đưa và tính tiền thừa.
+    * Hỗ trợ quy trình Hủy/Trả món: Ghi nhận lý do hủy, tự động hoàn tồn kho đối với Hàng hóa bán lẻ (nếu chưa khui). Món chế biến bị hủy sẽ được đưa vào báo cáo "Hao hụt/Waste".
+
+**4. Báo cáo & Thống kê**
+* **Báo cáo Doanh thu nhân viên:** Bóc tách rõ "Số lượng bán", "Số lượng trả", và "Doanh thu thuần" theo từng ca của từng thu ngân.
+* **Báo cáo Chi phí:** Tổng hợp tiền nhập hàng và tiền mua ngoài (Petty cash) để đối soát với dòng tiền thu về.
+
+---
+Bạn có muốn tôi phác thảo luôn thiết kế cấu trúc Database (các bảng và mối quan hệ) để giải quyết bài toán "Kiểm kê cuối ca" thay cho việc trừ kho tự động không?

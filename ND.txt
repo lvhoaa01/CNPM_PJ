@@ -1,0 +1,18 @@
+Thống kê báo cáo(2) + Quản lý bán hang(quản lý bàn ăn, đặt món, bàn giao bếp, thanh toán, xuất hóa đơn)  + Quản lý kho(xuất kho, tồn kho)
+
+Chức năng hệ thống - Người dùng
+
+
+
+
+Thu ngân + Lập báo cáo doanh thu - Thanh toán - Xuất hóa đơn
+
+Phục vụ + Ghi nhận bàn - ghi nhận món - Bàn giao cho bếp - Lấy hang 
+
+Bộ phận kho + báo cáo xuất kho - Tính hóa đơn xuất kho - Báo cáo tồn kho
+
+Khách hang + Đặt bàn - Tìm món - đặt món
+
+
+Tin học hóa: Báo cáo thông kê - Quản lý đặt bàn
+

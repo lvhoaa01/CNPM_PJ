@@ -1,0 +1,23 @@
+### Đặc tả và phân tích yêu cầu (Theo cấu trúc ảnh)
+
+**ĐẶC TẢ VÀ PHÂN TÍCH YÊU CẦU**
+
+Cửa hàng tạp hóa cần quản lý toàn diện việc kinh doanh, bán hàng trên máy vi tính, qua khảo sát hiện trạng, phân tích viên nắm được những thông tin sau:
+
+*Quản lý sản phẩm*: Quản trị viên có trách nhiệm rà soát và cập nhật thông tin sản phẩm trên hệ thống. [cite_start]Thông tin sản phẩm gồm: Tên sản phẩm, mô tả, đơn vị tính, đơn giá, số lượng tồn, ảnh sản phẩm, danh mục và nhà cung cấp[cite: 221]. [cite_start]Dashboard sẽ tự động cảnh báo các sản phẩm sắp hết hàng khi số lượng tồn dưới 10[cite: 277].
+
+*Quy trình bán hàng*:
+- [cite_start]Thu ngân đăng nhập vào hệ thống, tiến hành tìm kiếm và thêm sản phẩm khách mua vào giỏ hàng[cite: 195, 196]. 
+- [cite_start]Khi bán hàng, hệ thống sẽ kiểm tra tồn kho, đảm bảo số lượng tồn phải lớn hơn hoặc bằng số lượng khách mua[cite: 274]. [cite_start]Đồng thời, hệ thống tự động áp dụng chương trình khuyến mãi có lợi nhất (phần trăm giảm giá cao nhất) nếu sản phẩm đó thuộc nhiều chương trình khuyến mãi đang chạy cùng lúc[cite: 197, 205].
+- [cite_start]Thu ngân nhập số tiền khách đưa, hệ thống tự động tính toán tiền thừa[cite: 198]. [cite_start]Sau khi xác nhận thanh toán, hệ thống sẽ tiến hành tạo hóa đơn, trừ đi số lượng tồn kho tương ứng của sản phẩm và hỗ trợ in hóa đơn nếu cần[cite: 199, 200, 276].
+
+*Quy trình quản lý khuyến mãi*:
+- [cite_start]Quản trị viên lập các chương trình khuyến mãi với các thông tin: Tên chương trình, ngày bắt đầu, ngày kết thúc, danh sách sản phẩm áp dụng và phần trăm giảm giá cho từng sản phẩm[cite: 202, 203].
+- [cite_start]Chương trình khuyến mãi chưa bắt đầu có thể được chỉnh sửa toàn bộ thông tin[cite: 272]. [cite_start]Khuyến mãi đang chạy chỉ được phép sửa ngày kết thúc để gia hạn hoặc kết thúc sớm[cite: 272]. [cite_start]Khuyến mãi đã kết thúc sẽ không được phép chỉnh sửa, chỉ được xem[cite: 272].
+
+Các công việc cần phải tin học hóa:
+- [cite_start]Báo cáo thống kê doanh thu (theo ngày, tháng, năm, hoặc một khoảng thời gian cụ thể)[cite: 538].(@&*# Ăn điểm)
+- [cite_start]Báo cáo top 5 sản phẩm bán chạy trong tháng và danh sách các sản phẩm sắp hết hàng[cite: 330].
+- [cite_start]Tự động hóa quá trình áp dụng khuyến mãi, tính tổng tiền, tiền thừa và xuất in hóa đơn[cite: 197, 198, 200].
+
+[cite_start]*Phân quyền người sử dụng: Quản trị viên (Admin), Thu ngân (Cashier)*[cite: 189].
